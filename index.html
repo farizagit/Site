@@ -1,1 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Городская Библиотека</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #ecf0f1;
+            --accent-color: #e74c3c;
+        }
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            line-height: 1.6;
+        }
+        header {
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 1rem 0;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        nav {
+            padding: 0.5rem 0;
+        }
+        nav a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin: 0 0.5rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: var(--accent-color);
+        }
+        .container {
+            width: 80%;
+            margin: 6rem auto 2rem;
+            overflow: hidden;
+        }
+        .book {
+            background: #fff;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .book:hover {
+            transform: translateY(-5px);
+        }
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        .search-bar {
+            margin: 1rem 0;
+            padding: 0.5rem;
+            width: 100%;
+            border: 1px solid var(--primary-color);
+            border-radius: 5px;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--accent-color);
+            color: var(--secondary-color);
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #c0392b;
+        }
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
 
+<header>
+    <h1>Городская Библиотека</h1>
+    <nav>
+        <a href="#about">О нас</a>
+        <a href="#books">Книги</a>
+        <a href="#events">События</a>
+        <a href="#contact">Контакты</a>
+    </nav>
+</header>
+
+<div class="container">
+    <section id="about">
+        <h2>О нашей библиотеке</h2>
+        <p>Добро пожаловать в Городскую Библиотеку! Мы предлагаем широкий выбор книг, электронных ресурсов и образовательных программ для всех возрастов. Наша миссия - вдохновлять, обучать и объединять сообщество через любовь к чтению и знаниям.</p>
+    </section>
+
+    <section id="books">
+        <h2>Наша коллекция</h2>
+        <input type="text" class="search-bar" placeholder="Поиск книг...">
+        <div class="book-grid">
+            <div class="book">
+                <h3>1984</h3>
+                <p>Автор: Джордж Оруэлл</p>
+                <p>Жанр: Антиутопия</p>
+                <a href="#" class="btn">Подробнее</a>
+            </div>
+            <div class="book">
+                <h3>Гарри Поттер и философский камень</h3>
+                <p>Автор: Дж. К. Роулинг</p>
+                <p>Жанр: Фэнтези</p>
+                <a href="#" class="btn">Подробнее</a>
+            </div>
+            <div class="book">
+                <h3>Мастер и Маргарита</h3>
+                <p>Автор: Михаил Булгаков</p>
+                <p>Жанр: Роман</p>
+                <a href="#" class="btn">Подробнее</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="events">
+        <h2>Предстоящие события</h2>
+        <div class="book">
+            <h3>Встреча с автором</h3>
+            <p>Дата: 15 мая 2023</p>
+            <p>Встреча с известным писателем и автограф-сессия.</p>
+        </div>
+        <div class="book">
+            <h3>Детский час чтения</h3>
+            <p>Дата: Каждую субботу</p>
+            <p>Чтение сказок для детей младшего возраста.</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Свяжитесь с нами</h2>
+        <p>Телефон: +7 (123) 456-78-90</p>
+        <p>Email: info@citylib.ru</p>
+        <p>Адрес: ул. Книжная, д. 42, г. Читайск, Россия</p>
+        <p>Часы работы: Пн-Пт 9:00-20:00, Сб-Вс 10:00-18:00</p>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2023 Городская Библиотека. Все права защищены.</p>
+</footer>
+
+<script>
+    document.querySelector('.search-bar').addEventListener('input', function(e) {
+        const searchTerm = e.target.value.toLowerCase();
+        const books = document.querySelectorAll('.book');
+        
+        books.forEach(book => {
+            const title = book.querySelector('h3').textContent.toLowerCase();
+            const author = book.querySelector('p').textContent.toLowerCase();
+            if (title.includes(searchTerm) || author.includes(searchTerm)) {
+                book.style.display = 'block';
+            } else {
+                book.style.display = 'none';
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
